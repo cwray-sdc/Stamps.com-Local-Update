@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Local Update",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "background": {
         "scripts": ["background.js"],
         "persistent": true
@@ -13,13 +13,13 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://print.stamps.com/*"],
+            "matches": ["https://*.stamps.com/*", "https://*.stamps.dev/*"],
             "js": ["content-script.js"]
         }
     ],
     "web_accessible_resources": ["inject-script.js"],
     "externally_connectable": {
-        "matches": ["https://*.stamps.com/*"]
+        "matches": ["https://*.stamps.com/*", "https://*.stamps.dev/*"]
     },
     "browser_action": {
         "default_popup": "popup.html",
