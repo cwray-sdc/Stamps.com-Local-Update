@@ -5,7 +5,11 @@ document.getElementsByTagName("body")[0].addEventListener(
         const cap = {};
         cap[e.detail.data.cap] = e.detail.data.value;
 
-        Common.utils.Account.setAccountInfo(Object.assign(window.accountInfo.Capabilities, cap));
+        const existingInfo = Common.utils.Account.getAccountInfo();
+        
+        Object.assign(existingInfo.info.Capabilities, cap);
+
+        Common.utils.Account.setAccountInfo(existingInfo);
     },
     false
 );
